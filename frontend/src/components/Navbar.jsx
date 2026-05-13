@@ -7,25 +7,25 @@ const Navbar = () => {
   return (
     <div className='flex items-center justify-between py-5 font-medium'>
     <img src = {assets.logo} className = 'w-36' alt = "" />
-    <ul className='hidden sm:flex gap-5 text-sm text-gray- 700 hidden'>
+    <ul className='hidden sm:flex gap-5 text-sm text-gray-700 '>
     <NavLink to  ='/' className='flex flex-col items-center gap-1'>
         <p>Home</p>
-        <hr className='w-2/4 border-none h-[1.5px] bg-gray- 700 hidden' />
+        <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
     </NavLink>
 
      <NavLink to  ='/collection' className='flex flex-col items-center gap-1'>
         <p>Collection</p>
-        <hr className='w-2/4 border-none h-[1.5px] bg-gray- 700 hidden' />
+        <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
     </NavLink>
 
      <NavLink to  ='/about' className='flex flex-col items-center gap-1'>
         <p>About</p>
-        <hr className='w-2/4 border-none h-[1.5px] bg-gray- 700 hidden' />
+        <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
     </NavLink>
 
      <NavLink to  ='/contact' className='flex flex-col items-center gap-1'>
         <p>Contact</p>
-        <hr className='w-2/4 border-none h-[1.5px] bg-gray- 700 hidden' />
+        <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
     </NavLink>
     </ul>
 
@@ -63,10 +63,10 @@ const Navbar = () => {
 
         </div>
 
-        <NavLink onClick = {() => setVisible(false)}  className='py-2 p1-6 border '  to ='/'>Home</NavLink >
-        <NavLink onClick = {() => setVisible(false)} className='py-2 p1-6 border ' to ='/collection'>Collection</NavLink >
-        <NavLink onClick = {() => setVisible(false)} className='py-2 p1-6 border ' to ='/about'>About</NavLink >
-        <NavLink onClick = {() => setVisible(false)} className='py-2 p1-6 border ' to ='/contact'>Contact</NavLink >
+        <NavLink onClick = {() => setVisible(false)}  className='py-2 pl-6 border '  to ='/'>Home</NavLink >
+        <NavLink onClick = {() => setVisible(false)} className='py-2 pl-6 border ' to ='/collection'>Collection</NavLink >
+        <NavLink onClick = {() => setVisible(false)} className='py-2 pl-6 border ' to ='/about'>About</NavLink >
+        <NavLink onClick = {() => setVisible(false)} className='py-2 pl-6 border ' to ='/contact'>Contact</NavLink >
 
     </div>
     </div>
