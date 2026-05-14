@@ -14,7 +14,7 @@ const {currency} = useContext(ShopContext)
 
         </div>
         <p className='pt-3 pb-1 text-sm'>{name}</p>
-        <p className='text-sm font-medium'>{currency}</p>
+        <p className='text-sm font-medium'>{currency}{price}</p>
     </Link>
   )
 }
