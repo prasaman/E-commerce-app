@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { stripLow } from "validator";
+//import { stripLow } from "validator";
 
 const productSchema = new mongoose.Schema({
     name:{ type:String, required:true},
