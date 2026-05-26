@@ -19,7 +19,7 @@ const Add = ({token}) => {
   const[bestseller , setBestseller] = useState(false)
   const[sizes,setSizes] = useState([])
 
-  const onSubmitHandler = async() =>{
+  const onSubmitHandler = async(e) =>{
     e.preventDefault();
     try{
       const formData = new FormData();
@@ -36,9 +36,7 @@ const Add = ({token}) => {
       formData.append('sizes', JSON.stringify(sizes));
 
       const responce = await axios.post(backendUrl+'/api/product/add',formData, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: {token}
       })
       if(responce.data.success){
         toast.success(responce.data.message)
@@ -49,6 +47,12 @@ const Add = ({token}) => {
         setImage2(false)
         setImage3(false)
         setImage4(false)
+
+        setCategory('Men');
+        setSubCategory('Topwear');
+        setBestseller(false);
+        setSizes([]);
+
       }
       else{
         toast.error(responce.data.message)
@@ -100,7 +104,7 @@ const Add = ({token}) => {
 
         <div >
           <p className='mb-2'>Product Category</p>
-          <select  onChange={(e)=> setCategory(e.target.value)} className='w-full px-3 py-2' >
+          <select  onChange={(e)=> setCategory(e.target.value)} value = {category} className='w-full px-3 py-2' >
             <option value="Men"> Men</option>
             <option value="Women"> Women</option>
             <option value="Kids"> Kids</option>
@@ -153,7 +157,7 @@ const Add = ({token}) => {
         <label className='cursor-pointer' htmlFor="bestseller">Add to bestseller</label>
       </div>
 
-      <button type='submit' className='w-26 py-3 mt-4 bg-black text-white'>ADD</button>
+      <button type='submit' className='w-26 py-3 mt-4 bg-black text-white cursor-pointer'>ADD</button>
         
     </form>
   )
