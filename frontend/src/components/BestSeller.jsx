@@ -7,10 +7,20 @@ const BestSeller = () => {
     const {products} = useContext(ShopContext);
     const [bestSeller,setBestSeller] = useState([])
 
-    useEffect(() => {
-        const bestProduct = products.filter((item)=>(item.bestseller))
-        setBestSeller(bestProduct.slice(0,5))
-    },[products])
+    // useEffect(() => {
+    //     console.log("am i seen")
+    //     const bestProduct = products.filter((item)=>(item.bestSeller))
+    //     setBestSeller(bestProduct.slice(0,5))
+    // },[products])
+
+   useEffect(() => {
+    const bestProduct = products.filter(
+        (item) => item.bestSeller || item.bestseller
+    );
+
+    setBestSeller(bestProduct.slice(0, 5));
+}, [products]);
+    
   return (
     <div className='my-10'>
 <div className='text-center text-3xl py-8 '>
