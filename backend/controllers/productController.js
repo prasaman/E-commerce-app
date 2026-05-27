@@ -47,7 +47,7 @@ try{
     
     
   
-    res.json({sucess:true,message:"product added"})
+    res.json({success:true, message:"product added"})
     
 
 

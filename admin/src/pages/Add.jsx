@@ -32,7 +32,7 @@ const Add = ({token}) => {
       formData.append('price', price);
       formData.append('category', category);
       formData.append('subCategory', subCategory);
-      formData.append('bestseller', bestseller);
+      formData.append('bestSeller', bestseller);
       formData.append('sizes', JSON.stringify(sizes));
 
       const responce = await axios.post(backendUrl+'/api/product/add',formData, {
@@ -113,7 +113,7 @@ const Add = ({token}) => {
 
          <div>
           <p className='mb-2'>Sub Category</p>
-          <select onChange={(e)=> setSubCategory(e.target.value)} className='w-full px-3 py-2' >
+          <select onChange={(e)=> setSubCategory(e.target.value)} value = {subCategory} className='w-full px-3 py-2' >
             <option value="Topwear"> Topwear</option>
             <option value="Bottomwear"> Bottomwear</option>
             <option value="Footwear"> Footwear</option>
