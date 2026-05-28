@@ -64,6 +64,20 @@ const onSubmitHandler = async(e) =>{
       }
     break;
 
+    case 'stripe':
+      const responseStripe = await axios.post(backendUrl+'/api/order/stripe',orderData,{headers:{token:token}})
+      if(responseStripe.data.success){
+        const {session_url} = responseStripe.data
+        window.location.replace(session_url)
+      }else{
+        toast.error(responseStripe.data.message)
+
+      }
+
+
+
+    break;
+
     default:
       break;
   }
@@ -128,10 +142,7 @@ const onSubmitHandler = async(e) =>{
                 <img src={assets.stripe_logo} className='h-5 mx-4' alt="" />
               </div>
 
-              <div onClick={() => setMethod('razorpay')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
-                <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'razorpay'? 'bg-green-500' :  '' } `}></p>
-                <img src={assets.razorpay_logo} className='h-5 mx-4' alt="" />
-              </div>
+            
 
               <div onClick={() => setMethod('cod')} className='flex items-center gap-3 border p-2 px-3 cursor-pointer'>
                 <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'cod'? 'bg-green-500' :'' } `}></p>
